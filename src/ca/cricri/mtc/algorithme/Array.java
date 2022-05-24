@@ -1,4 +1,4 @@
-package ca.cricri.mtc.algorithm;
+package ca.cricri.mtc.algorithme;
 
 import java.util.Arrays;
 
@@ -70,14 +70,25 @@ public class Array {
         return String.copyValueOf(myStringChar);
     }
 
+    /**
+     * twoSums link : <a href="https://leetcode.com/problems/two-sum/description/">https://leetcode.com/problems/two-sum/description/</a>
+     * time complexity less than O(n^2)
+     */
+    public static int[] twoSum(int[] nums, int target) {
+        return null;
+    }
+
+
 
     public static void main(String[] args) {
-        System.out.println(Array.reverseStringSurPlace("blu"));
-        System.out.println(Array.reverseStringSurPlace("bonjour je m'appel cricri777"));
-        int [] sortedArray1 = {1,3,5,7,8,11,12,13,14,15};
-        int [] sortedArray2 = {2,4,6,9,10};
+//        System.out.println(Array.reverseStringSurPlace("blu"));
+//        System.out.println(Array.reverseStringSurPlace("bonjour je m'appel cricri777"));
+//        int [] sortedArray1 = {1,3,5,7,8,11,12,13,14,15};
+//        int [] sortedArray2 = {2,4,6,9,10};
+//
+//        System.out.println(mergeSortedArray(sortedArray1, sortedArray2).length);
+//        System.out.println(Arrays.toString(mergeSortedArray(sortedArray1, sortedArray2)));
 
-        System.out.println(mergeSortedArray(sortedArray1, sortedArray2).length);
-        System.out.println(Arrays.toString(mergeSortedArray(sortedArray1, sortedArray2)));
+        System.out.println(Arrays.toString(twoSum(new int[]{3,2,4}, 6)));
     }
 }
