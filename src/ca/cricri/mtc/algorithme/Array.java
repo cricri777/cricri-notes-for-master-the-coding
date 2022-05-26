@@ -1,6 +1,7 @@
 package ca.cricri.mtc.algorithme;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Array {
 
@@ -71,10 +72,72 @@ public class Array {
     }
 
     /**
-     * twoSums link : <a href="https://leetcode.com/problems/two-sum/description/">https://leetcode.com/problems/two-sum/description/</a>
+     * twoSums link : <a href="https://leetcode.com/problems/two-sum/description/">link</a>
      * time complexity less than O(n^2)
      */
     public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> resultMap = new HashMap<>(); // cle = target - valeur, value = array position
+        int [] result = new int[2];
+
+        for(int i=0; i<nums.length; i++){
+                int add = target - nums[i];
+                if(resultMap.containsKey(add)){
+                    result[0] = resultMap.get(add);
+                    result[1] = i;
+                }
+                resultMap.put(nums[i], i);
+        }
+        return result;
+    }
+
+    /**
+     *
+     */
+    public static int findMaxConsecutiveOnes(int[] nums) {
+        int res = 0;
+
+        for(int i=0; i<nums.length;i++){
+            int tmp = 0;
+            if(nums[i] == 1) {
+                while(i < nums.length && nums[i] == 1) {
+                    tmp++;
+                    i++;
+                }
+
+                if(tmp > res){
+                    res = tmp;
+                }
+            }
+        }
+        return res;
+    }
+
+    /**
+     * Given an array nums of integers, return how many of them contain an even number of digits
+     * <a href="https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3237/">link</a>
+     */
+    public static int findNumbers(int[] nums) {
+        int res = 0;
+        for(int i=0; i < nums.length; i++){
+            int countNum = 0;
+            int value = nums[i];
+            while(value > 0 ){
+                value /= 10;
+                countNum++;
+            }
+
+            if(countNum % 2 == 0){
+                res++;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+     * <a href="https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3240/">link</a>
+     */
+    public int[] sortedSquares(int[] nums) {
         return null;
     }
 
@@ -89,6 +152,9 @@ public class Array {
 //        System.out.println(mergeSortedArray(sortedArray1, sortedArray2).length);
 //        System.out.println(Arrays.toString(mergeSortedArray(sortedArray1, sortedArray2)));
 
-        System.out.println(Arrays.toString(twoSum(new int[]{3,2,4}, 6)));
+        System.out.println(Arrays.toString(twoSum(new int[]{-3,4,3,90}, 0)));
+
+//        System.out.println(findNumbers(new int[] {12,223,312,4123,5,6,7}));
+//        System.out.println(findMaxConsecutiveOnes(new int[] {0}));
     }
 }
