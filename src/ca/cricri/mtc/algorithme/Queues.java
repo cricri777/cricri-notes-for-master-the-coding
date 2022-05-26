@@ -30,7 +30,7 @@ public class Queues {
         Node res = null;
         if(this.last == null) {
             System.out.println("dequeue not possible, queue empty");
-        } else if(this.last == this.first) { // Todo : implement hashcode and equals
+        } else if(this.last == this.first) { // reference to same object in memory
             res = this.first;
             this.first = null;
             this.last = null;
