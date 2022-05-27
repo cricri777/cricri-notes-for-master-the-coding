@@ -1,8 +1,10 @@
 package ca.cricri.mtc.algorithme;
 
+import ca.cricri.mtc.algorithme.utility.Node;
+
 public class Queues {
-    private Node first;
-    private Node last;
+    private Node<Integer> first;
+    private Node<Integer> last;
     private int length;
 
     public Queues(){
@@ -11,11 +13,11 @@ public class Queues {
         this.length = 0;
     }
 
-    public Node peek(){
+    public Node<Integer> peek(){
         return this.last;
     }
 
-    public void enqueue(Node value){
+    public void enqueue(Node<Integer> value){
         if(length == 0){
             first = value;
             last = value;
@@ -26,8 +28,8 @@ public class Queues {
         length++;
     }
 
-    public Node dequeue(){
-        Node res = null;
+    public Node<Integer> dequeue(){
+        Node<Integer> res = null;
         if(this.last == null) {
             System.out.println("dequeue not possible, queue empty");
         } else if(this.last == this.first) { // reference to same object in memory
@@ -53,10 +55,10 @@ class MainQueue{
     public static void main(String[] args) {
         Queues queue = new Queues();
 
-        queue.enqueue(new Node(12, null));
-        queue.enqueue(new Node(13, null));
-        queue.enqueue(new Node(14, null));
-        queue.enqueue(new Node(15, null));
+        queue.enqueue(new Node<>(12, null));
+        queue.enqueue(new Node<>(13, null));
+        queue.enqueue(new Node<>(14, null));
+        queue.enqueue(new Node<>(15, null));
 
         System.out.println(queue);
         queue.dequeue();
