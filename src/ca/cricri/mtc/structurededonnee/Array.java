@@ -1,4 +1,4 @@
-package ca.cricri.mtc.algorithme;
+package ca.cricri.mtc.structurededonnee;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
-package ca.cricri.mtc.algorithme;
+package ca.cricri.mtc.structurededonnee;
 
-import ca.cricri.mtc.algorithme.utility.Node;
+import ca.cricri.mtc.utility.Node;
 
 public class Queues {
     private Node<Integer> first;

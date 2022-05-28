@@ -1,4 +1,4 @@
-package ca.cricri.mtc.algorithme;
+package ca.cricri.mtc.structurededonnee;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,11 +12,30 @@ import java.util.LinkedList;
  * suppression : O(1)
  */
 class Tuple<X, Y> {
-    public final X x;
-    public final Y y;
+
+    private X x;
+    private Y y;
+
+
     public Tuple(X x, Y y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void setY(Y y) {
+        this.y = y;
+    }
+
+    public X getX() {
+        return x;
+    }
+
+    public Y getY() {
+        return y;
+    }
+
+    public void setX(X x) {
+        this.x = x;
     }
 
     @Override
@@ -53,7 +72,7 @@ public class HashTable {
     private Tuple<String, Integer> get(String grapes) {
         int address = _hash(grapes);
         for(Tuple<String, Integer> tuple : data[address]) {
-            if(tuple.x.equals(grapes)) {
+            if(tuple.getX().equals(grapes)) {
                 return tuple;
             }
         }

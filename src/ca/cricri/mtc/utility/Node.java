@@ -1,4 +1,4 @@
-package ca.cricri.mtc.algorithme.utility;
+package ca.cricri.mtc.utility;
 
 public class Node<E> {
     private E value;
