@@ -1,11 +1,7 @@
 package ca.cricri.mtc.algorithme;
 
-import java.util.ArrayList;
-import java.util.List;
+import ca.cricri.mtc.utility.BinaryNode;
 
-public class Tree {
-
-}
 
 class BinarySearchTree {
 
@@ -76,59 +72,6 @@ class BinarySearchTree {
     }
 }
 
-class BinaryNode<E> {
-
-
-    private final E value;
-    private BinaryNode<E> leftChild;
-    private BinaryNode<E> rightChild;
-
-    public BinaryNode(E value, BinaryNode<E> leftChild, BinaryNode<E> rightChild) {
-        this.value = value;
-        this.leftChild = leftChild;
-        this.rightChild = rightChild;
-    }
-
-    public E getValue(){
-        return this.value;
-    }
-    public BinaryNode<E> getLeftChild() {
-        return this.leftChild;
-    }
-
-    public BinaryNode<E> getRightChild() {
-        return this.rightChild;
-    }
-
-    public BinaryNode<E>[] getChildren() {
-        @SuppressWarnings("unchecked")
-        BinaryNode<E>[] children = new BinaryNode[2];
-        children[0] = this.getLeftChild();
-        children[1] = this.getRightChild();
-        return children;
-    }
-
-    public void setLeftChild(BinaryNode<E> leftChild) {
-        this.leftChild = leftChild;
-    }
-    public void setRightChild(BinaryNode<E> rightChild) {
-        this.rightChild = rightChild;
-    }
-
-    /**
-     *
-     * @param children tableau qui contient les enfant (position 0 enfant gauche, position 1 enfant droite)
-     */
-    public void setChildren (BinaryNode<E>[] children) {
-        this.setLeftChild(children[0]);
-        this.setRightChild(children[1]);
-    }
-
-    @Override
-    public String toString() {
-        return "BinaryNode (value:" + this.getValue() + " , left:" + this.getLeftChild().getValue() + ", right:" + this.getRightChild().getValue() + ")";
-    }
-}
 
 
 class MainTree {

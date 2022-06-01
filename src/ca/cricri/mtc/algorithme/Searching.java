@@ -52,7 +52,7 @@ public class Searching {
         Queue<BinaryNode<Integer>> queue = new LinkedList<>();
 
         queue.add(currentNode);
-        while(queue.size() > 0){
+        while(queue.size() > 0) {
             currentNode = queue.poll();
             result.add(currentNode.getValue());
             if(currentNode.getLeftChild() != null) {
@@ -79,9 +79,62 @@ public class Searching {
             queue.add(currentNode.getRightChild());
         }
 
-
         return bfsRecursive(queue, result);
     }
+
+    public static List<Integer> dfsPostOrder(BinaryTree tree) {
+        return traversePostOrder(tree.getRoot() , new ArrayList<Integer>());
+    }
+
+    private static List<Integer> traversePostOrder(BinaryNode<Integer> current, ArrayList<Integer> results) {
+        System.out.println("traverse node : " + current.getValue());
+        if(current.getLeftChild() != null) {
+            traversePostOrder(current.getLeftChild(), results);
+        }
+        if(current.getRightChild() != null) {
+            traversePostOrder(current.getRightChild(), results);
+        }
+        System.out.println("pick node : " + current.getValue());
+        results.add(current.getValue());
+        return results;
+    }
+
+    public static List<Integer> dfsInOrder(BinaryTree tree) {
+        ArrayList<Integer> results = new ArrayList<>();
+        return traverseInOrder(tree.getRoot(), results);
+    }
+
+    private static ArrayList<Integer> traverseInOrder(BinaryNode<Integer> current, ArrayList<Integer> results) {
+        System.out.println("traverse node : " + current.getValue());
+        if(current.getLeftChild() != null) {
+            traverseInOrder(current.getLeftChild(), results);
+        }
+        System.out.println("pick node : " + current.getValue());
+        results.add(current.getValue());
+        if(current.getRightChild() != null) {
+            traverseInOrder(current.getRightChild(), results);
+        }
+        return results;
+    }
+
+    public static List<Integer> dfsPreorder(BinaryTree tree) {
+        return traversePreOrder(tree.getRoot(), new ArrayList<Integer>());
+    }
+
+    private static List<Integer> traversePreOrder(BinaryNode<Integer> current, ArrayList<Integer> results) {
+        System.out.println("traverse node : " + current.getValue());
+        System.out.println("pick node : " + current.getValue());
+        results.add(current.getValue());
+        if(current.getLeftChild() != null) {
+            traversePreOrder(current.getLeftChild(), results);
+        }
+        if(current.getRightChild() != null) {
+            traversePreOrder(current.getRightChild(), results);
+        }
+        return results;
+    }
+
+
 }
 
 class MainSearching {
@@ -96,11 +149,33 @@ class MainSearching {
 
 //        BinaryTree.printNode(tree.getRoot(), new StringBuilder(""));
 
-//        System.out.println(Searching.bfs(tree));
-        Queue<BinaryNode<Integer>> queue = new LinkedList<>();
-        queue.add(tree.getRoot());
-        System.out.println(Searching.bfsRecursive(queue, new ArrayList<Integer>()));
-
+        System.out.println(Searching.dfsPostOrder(tree));
     }
-
 }
+
+
+/**
+ * TODO
+ * <a href="https://leetcode.com/problems/validate-binary-search-tree/">link</a>
+ */
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ *
+ * class Solution {
+ *     public boolean isValidBST(TreeNode root) {
+ *
+ *     }
+ * }
+ */
