@@ -2,6 +2,25 @@ package ca.cricri.mtc.algorithme;
 
 import java.util.Arrays;
 
+/**
+ * Interview question example :
+ #1 - Sort 10 schools around your house by distance : insertion sort
+
+ #2 - eBay sorts listings by the current Bid amount : radix / counting sort
+
+ #3 - Sport scores on ESPN : quick sort
+
+ #4 - Massive database (can't fit all into memory) needs to sort through past year's user data : selection / bubble sort
+
+ #5 - Almost sorted Udemy review data needs to update and add 2 new reviews : insertion
+
+ #6 - Temperature Records for the past 50 years in Canada : radix / counting sort / quicksort
+
+ #7 - Large user name database needs to be sorted. Data is very random : quicksort
+
+ #8 - You want to teach sorting for the first time : bubble / selection sort
+ *
+ */
 public class Sorting {
 
     public static int[] bubbleSort(int [] array) {
@@ -106,6 +125,13 @@ public class Sorting {
     public static int[] quickSort(int array) {
         return null;
     }
+
+    /**
+     * Non comparison sort :
+     *  - Counting sort
+     *  - Radix sort
+     */
+
 
     public static void main(String[] args) {
         int[] array = new int[] {6,4,5,3,1,7,0};

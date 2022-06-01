@@ -8,10 +8,10 @@ import ca.cricri.mtc.utility.BinaryNode;
  * Binary Heap
  * Trie
  */
-public class Tree {
+public class BinaryTree {
     private BinaryNode<Integer> root;
 
-    public Tree(int root){
+    public BinaryTree(int root){
         this.root = new BinaryNode<>(root, null, null);
     }
 
@@ -81,7 +81,7 @@ public class Tree {
 
 class MainTree {
     public static void main(String[] args) {
-        Tree tree = new Tree(100);
+        BinaryTree tree = new BinaryTree(100);
         tree.insert(99);
         tree.insert(104);
         tree.insert(101);
