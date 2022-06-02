@@ -68,12 +68,40 @@ public class DynamicProgramming {
      * <a href="https://leetcode.com/problems/climbing-stairs/">link</a>
      * TODO
      */
-    public int climbStairs(int n) {
-        return 0;
+    public static int climbStairsBottomUp(int n) {
+        int one = 0;
+        int two = 1;
+
+       for(int i=0; i<n-1; i++){
+           int tmp = two;
+           two = one + two;
+           one = two;
+       }
+        return two;
+    }
+    public static int climbStairsMemoized(int n) {
+        return climbStairsHelper(n, 0);
+    }
+
+    private static final Map<Integer, Integer> memoizeClimbStairs = new HashMap<>();
+
+    private static int climbStairsHelper(int n, int current) {
+        if (current == n) {
+            return 1;
+        } else if (current > n) {
+            return 0;
+        } else {
+            if (memoizeClimbStairs.containsKey(current)) {
+                return memoizeClimbStairs.get(current);
+            } else {
+                int blub = climbStairsHelper(n, current + 1) + climbStairsHelper(n, current + 2);
+                memoizeClimbStairs.put(current, blub);
+                return blub;
+            }
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(fibonacciMemoized(100));
-        System.out.println(counter);
+        System.out.println(climbStairsBottomUp(3));
     }
 }

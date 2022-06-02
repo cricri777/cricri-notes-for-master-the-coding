@@ -135,6 +135,9 @@ public class Searching {
     }
 
 
+    public static void main(String[] args) {
+
+    }
 }
 
 class MainSearching {
@@ -155,27 +158,49 @@ class MainSearching {
 
 
 /**
- * TODO
+ * TODO :
  * <a href="https://leetcode.com/problems/validate-binary-search-tree/">link</a>
+  Definition for a binary tree node.
  */
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- *
- * class Solution {
- *     public boolean isValidBST(TreeNode root) {
- *
- *     }
- * }
- */
+  class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode() {}
+      TreeNode(int val) { this.val = val; }
+      TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+      }
+  }
+
+  class Solution {
+      /**
+       * Algo :
+       * - parcourir les noeuds de l'arbre
+       * - si le noeud a des enfants, valider :
+       *    - l'enfant gauche est toujours plus petit que le parent
+       *    - l'enfant droit est toujours plus grand que le parent
+       * @param root Treenode to iterate
+       * @return boolean true if tree is a Binary Search Tree
+       * <a href="https://leetcode.com/problems/validate-binary-search-tree/">leetcode</a>
+       * inspired by : <a href="https://leetcode.com/problems/validate-binary-search-tree/discuss/2100305/Java-Recursion-Solution">link</a>
+       */
+      public boolean isValidBST(TreeNode root) {
+          return isValidBSTHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+      }
+
+      private boolean isValidBSTHelper(TreeNode current, long leftChild, long rightChild) {
+          if(current == null) {
+              return true;
+          }
+          if(current.val > leftChild && current.val < rightChild) {
+              return isValidBSTHelper(current.left, leftChild, current.val) &&
+                      isValidBSTHelper(current.right, current.val, rightChild);
+          }
+          return false;
+      }
+  }
+
+
