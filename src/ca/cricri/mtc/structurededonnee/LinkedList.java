@@ -23,7 +23,7 @@ public class LinkedList {
     }
 
     public void append(String value) {
-        Node<String> node = new Node<String>(value, null);
+        Node<String> node = new Node<>(value, null);
         this.tail.setNext(node);
         this.tail = node;
         this.length++;
@@ -35,19 +35,19 @@ public class LinkedList {
         }
         if(index == 0){
             prepend(value);
-        }
-        if(index == this.length-1){
+        } else if(index == this.length){
             append(value);
+        } else {
+            Node<String> node = new Node<>(value, null);
+            Node<String> currentNode = head;
+            for(int i=0; i<index-1; i++) {
+                currentNode = currentNode.getNext();
+            }
+
+            node.setNext(currentNode.getNext());
+            currentNode.setNext(node);
         }
 
-        Node<String> node = new Node<>(value, null);
-        Node<String> currentNode = head;
-        for(int i=0; i<index-1; i++) {
-            currentNode = currentNode.getNext();
-        }
-
-        node.setNext(currentNode.getNext());
-        currentNode.setNext(node);
         this.length++;
     }
 

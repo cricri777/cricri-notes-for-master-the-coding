@@ -57,9 +57,11 @@ public class DynamicProgramming {
     /**
      * bes time to bur and sell stock
      * <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">link</a>
+     * <a href="https://www.youtube.com/watch?v=1pkOgXD63yU">solution</a>
      * TODO
      */
     public int maxProfit(int[] prices) {
+
         return 0;
     }
 

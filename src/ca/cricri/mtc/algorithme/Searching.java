@@ -158,7 +158,6 @@ class MainSearching {
 
 
 /**
- * TODO :
  * <a href="https://leetcode.com/problems/validate-binary-search-tree/">link</a>
   Definition for a binary tree node.
  */
